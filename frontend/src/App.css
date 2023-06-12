@@ -6,14 +6,18 @@ body {
   color: #c0caf5;
   text-align: center;
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 }
 
-h1, h2 {
+h1 {
   font-weight: 700;
-  color: #a9b1d6;
+  font-size: 32px;
+  color: #00deb7;
+}
+
+h2 {
+  font-weight: 700;
+  color: #e0468c;
 }
 
 p {
@@ -22,29 +26,45 @@ p {
 }
 
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card {
   background-color: #2a2d3e;
-  padding: 20px;
+  padding: 10px;
+  margin: 40px;
   border-radius: 50px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: auto;
 }
 
 .card-content {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card-description {
+  padding: 0 50px 0 0;
+  text-align: left;
+  max-width: 60%;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.card-form {
   display: inline-block;
-  max-width: 80%;
   height: 100%;
 }
 
 .card-inputs {
   margin-bottom: 20px;
-  text-align: center;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-inputs input {
@@ -54,7 +74,6 @@ p {
   background-color: #3a3e4a;
   color: #c0caf5;
   font-size: 16px;
-  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -84,7 +103,24 @@ p {
 
 /* Media query for small viewports */
 @media screen and (max-width: 767px) {
+  body {
+    justify-content: unset;
+    align-items: unset;
+  }
+
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .card-description {
+    width: 100%;
+    margin-bottom: 40px;
   }
 }
