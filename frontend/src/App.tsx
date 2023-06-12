@@ -32,34 +32,36 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <div>
-        <h2>Uppercase String</h2>
-        <form onSubmit={handleStringSubmit}>
-          <input
-            type="text"
-            value={inputString}
-            onChange={(e) => setInputString(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        {uppercasedString && <p>{uppercasedString}</p>}
-      </div>
-      <div>
-        <h2>Sum Numbers</h2>
-        <form onSubmit={handleSumSubmit}>
-          <input
-            type="number"
-            value={num1}
-            onChange={(e) => setNum1(Number(e.target.value))}
-          />
-          <input
-            type="number"
-            value={num2}
-            onChange={(e) => setNum2(Number(e.target.value))}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        {sum && <p>{sum}</p>}
+      <div className="card-grid">
+        <div className="card">
+          <h2>Uppercase String</h2>
+          <form onSubmit={handleStringSubmit}>
+            <input
+              type="text"
+              value={inputString}
+              onChange={(e) => setInputString(e.target.value)}
+            />
+            <button type="submit">Submit</button>
+          </form>
+          {uppercasedString && <p>{uppercasedString}</p>}
+        </div>
+        <div className="card">
+          <h2>Sum Numbers</h2>
+          <form onSubmit={handleSumSubmit}>
+            <input
+              type="number"
+              value={num1}
+              onChange={(e) => setNum1(Number(e.target.value))}
+            />
+            <input
+              type="number"
+              value={num2}
+              onChange={(e) => setNum2(Number(e.target.value))}
+            />
+            <button type="submit">Submit</button>
+          </form>
+          {sum && <p>{sum}</p>}
+        </div>
       </div>
     </div>
   );
