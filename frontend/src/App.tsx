@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './normalize.css';
+import './App.css';
 
 const App: React.FC = () => {
   const [inputString, setInputString] = useState("");
