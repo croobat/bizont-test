@@ -58,6 +58,18 @@ p {
   margin-bottom: 10px;
 }
 
+.card-inputs button[type="submit"] {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #61afef;
+  color: #1a1b26;
+  font-size: 16px;
+  max-width: 300px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
 .card-output {
   background-color: #3a3e4a;
   padding: 10px;
