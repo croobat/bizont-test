@@ -78,10 +78,10 @@ const CardGrid: React.FC = () => {
       There is a shop with old-style cash registers. Rather than scanning items and pulling the price from a database, the price of each item is typed in manually. This method sometimes leads to errors. Given a list of items and their correct prices, compare the prices to those entered when each item was sold. Determine the number of errors in selling prices.<br /><br />
 
       Example<br />
-      products = [eggs,, milk, ‘cheese]<br />
+      products = ['eggs', 'milk', ‘cheese']<br />
       productPrices = [2.89, 3.29, 5.79]<br />
-      productSold = [eggs, ‘eggs’, ‘cheese’, milk]<br />
-      soldPrice = [2.89, 2.99, 5.97, 3.29].<br /><br />
+      productSold = ['eggs', ‘eggs’, ‘cheese’, 'milk']<br />
+      soldPrice = [2.89, 2.99, 5.97, 3.29]<br /><br />
 
       Price<br />
       Product Actual Expected Error<br />
@@ -90,19 +90,19 @@ const CardGrid: React.FC = () => {
       cheese  5.97  5.79 1<br />
       milk 3.29  3.29<br /><br />
 
-      The second sale of eggs has a wrong price, as does the sale of cheese. There are 2errors in pricing.<br /><br />
+      The second sale of eggs has a wrong price, as does the sale of cheese. There are 2 errors in pricing.<br /><br />
 
       Function Description<br />
       Complete the function priceCheckin the editor below.<br />
 
       priceCheck has the following parameter(s):<br />
-      {'string productsfn]: each products(i]is the name of an item for sale'}<br />
-      {'string productPricesin: each productPrices{ilis the price of productsfi]'}<br />
-      {'string productSoldjm}: each productSold[jis the name of a product sold'}<br />
-      {'float soldPrice[m}: each soldPricefj] contains the sale price recorded for productSold[jl.'}<br /><br />
+      {'string products[n]: each products[i] is the name of an item for sale'}<br />
+      {'string productPrices[n]: each productPrices[i] lis the price of products[i]'}<br />
+      {'string productSold[m]: each productSold[j] is the name of a product sold'}<br />
+      {'float soldPrice[m]: each soldPrice[j] contains the sale price recorded for productSold[j].'}<br /><br />
 
       Returns:<br />
-      int: the number of sale prices that were entered incorrectly<br /><br />
+      int: the number of sale prices that were entered incorrectly.<br /><br />
 
       Sample Case 0<br />
       - Sample Input<br /><br />
@@ -225,7 +225,7 @@ const CardGrid: React.FC = () => {
       {
         wordsInSentence && (
           <div className="card-output">
-            <p>{wordsInSentence}</p>
+            <p>There are {wordsInSentence} words in your sentence.</p>
           </div>
         )
       }
