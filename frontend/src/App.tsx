@@ -419,19 +419,19 @@ const CardGrid: React.FC = () => {
         <Card
           title="Uppercase String"
           description={howManyWordsDescription}
-          sourceCode="https://example.com/source"
+          sourceCode="https://github.com/croobat/bizont-test"
           form={howManyWordsForm}
         />
         <Card
           title="Price Check"
           description={priceCheckDescription}
-          sourceCode="https://example.com/source"
+          sourceCode="https://github.com/croobat/bizont-test"
           form={priceCheckForm}
         />
         <Card
           title="Duplicated Products"
           description={duplicatedProductsDescription}
-          sourceCode="https://example.com/source"
+          sourceCode="https://github.com/croobat/bizont-test"
           form={duplicateProductsForm}
         />
       </div>
