@@ -80,7 +80,7 @@ const CardGrid: React.FC = () => {
 
       <b>Sample Case 0</b><br /><br />
       - <em>Sample Input</em><br />
-      he s a good programmer, he won 865 competitions, but sometimes he dont. What do you think? ALL test-cases should pass. Done-done?<br /><br />
+      he is a good programmer, he won 865 competitions, but sometimes he dont. What do you think? ALL test-cases should pass. Done-done?<br /><br />
       - <em>Sample Output</em><br />
       21<br /><br />
 
@@ -155,7 +155,7 @@ const CardGrid: React.FC = () => {
       Returns:<br />
       int: the number of sale prices that were entered incorrectly.<br /><br />
 
-      <b>Sample Case 0</b><br />
+      <b>Sample Case 0</b><br /><br />
       - <em>Sample Input</em><br /><br />
       STDIN Function<br />
       {"products[] size n = 4"}<br />
@@ -404,7 +404,7 @@ const CardGrid: React.FC = () => {
       </div>
       {duplicateproductDupCount !== null && (
         <div className="card-output">
-          <p>{`There are ${duplicateproductDupCount} duplicate products`}</p>
+          <p>{`There are ${duplicateproductDupCount} duplicate products`}.</p>
         </div>
       )}
     </form>
