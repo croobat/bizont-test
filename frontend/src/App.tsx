@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import axios from "axios";
+
+import Card from './components/Card';
+
 import './normalize.css';
 import './App.css';
 
@@ -9,14 +13,24 @@ const CardGrid: React.FC = () => {
   const [num2, setNum2] = useState(0);
   const [sum, setSum] = useState(0);
 
-  const handleStringSubmit = (e: React.FormEvent) => {
+  const handleStringSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setUppercasedString(inputString.toUpperCase());
+    try {
+      const response = await axios.post("/api/uppercase", { inputString });
+      setUppercasedString(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleSumSubmit = (e: React.FormEvent) => {
+  const handleSumSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSum(num1 + num2);
+    try {
+      const response = await axios.post("/api/sum", { num1, num2 });
+      setSum(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
