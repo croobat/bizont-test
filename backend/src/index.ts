@@ -6,10 +6,18 @@ const port = 5000;
 
 app.use(bodyParser.json());
 
-app.post("/api/uppercase", (req, res) => {
-  const { inputString } = req.body;
-  const uppercasedString = inputString.toUpperCase();
-  res.json(uppercasedString);
+app.post("/api/countwords", (req, res) => {
+  const { sentence } = req.body;
+  let count = 0;
+  const words = sentence.replace(/[.,?!]/g, '').split(/\s+/);
+
+  for (const word of words) {
+    if (/^[a-zA-Z]+(-[a-zA-Z]+)*$/.test(word)) {
+      count++;
+    }
+  }
+
+  res.json(count);
 });
 
 app.post("/api/sum", (req, res) => {

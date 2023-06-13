@@ -7,8 +7,8 @@ import './normalize.css';
 import './App.css';
 
 const CardGrid: React.FC = () => {
-  const [inputString, setInputString] = useState("");
-  const [uppercasedString, setUppercasedString] = useState("");
+  const [sentence, setSentence] = useState("");
+  const [wordsInSentence, setWordsInSentence] = useState("");
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [sum, setSum] = useState(0);
@@ -16,8 +16,8 @@ const CardGrid: React.FC = () => {
   const handleStringSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/uppercase", { inputString });
-      setUppercasedString(response.data);
+      const response = await axios.post("/api/countwords", { sentence: sentence });
+      setWordsInSentence(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -217,15 +217,15 @@ const CardGrid: React.FC = () => {
       <div className="card-inputs">
         <input
           type="text"
-          value={inputString}
-          onChange={(e) => setInputString(e.target.value)}
+          value={sentence}
+          onChange={(e) => setSentence(e.target.value)}
         />
         <button type="submit">Submit</button>
       </div>
       {
-        uppercasedString && (
+        wordsInSentence && (
           <div className="card-output">
-            <p>{uppercasedString}</p>
+            <p>{wordsInSentence}</p>
           </div>
         )
       }
@@ -237,15 +237,15 @@ const CardGrid: React.FC = () => {
       <div className="card-inputs">
         <input
           type="text"
-          value={inputString}
-          onChange={(e) => setInputString(e.target.value)}
+          value={sentence}
+          onChange={(e) => setSentence(e.target.value)}
         />
         <button type="submit">Submit</button>
       </div>
       {
-        uppercasedString && (
+        wordsInSentence && (
           <div className="card-output">
-            <p>{uppercasedString}</p>
+            <p>{wordsInSentence}</p>
           </div>
         )
       }
@@ -257,15 +257,15 @@ const CardGrid: React.FC = () => {
       <div className="card-inputs">
         <input
           type="text"
-          value={inputString}
-          onChange={(e) => setInputString(e.target.value)}
+          value={sentence}
+          onChange={(e) => setSentence(e.target.value)}
         />
         <button type="submit">Submit</button>
       </div>
       {
-        uppercasedString && (
+        wordsInSentence && (
           <div className="card-output">
-            <p>{uppercasedString}</p>
+            <p>{wordsInSentence}</p>
           </div>
         )
       }
