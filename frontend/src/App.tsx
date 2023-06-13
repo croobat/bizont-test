@@ -8,10 +8,13 @@ import './App.css';
 
 const CardGrid: React.FC = () => {
   const [sentence, setSentence] = useState("");
-  const [wordsInSentence, setWordsInSentence] = useState("");
-  const [num1, setNum1] = useState(0);
-  const [num2, setNum2] = useState(0);
-  const [sum, setSum] = useState(0);
+  const [wordsInSentence, setWordsInSentence] = useState(0);
+
+  const [products, setProducts] = useState("");
+  const [productPrices, setProductPrices] = useState("");
+  const [soldProducts, setSoldProducts] = useState("");
+  const [soldPrices, setSoldPrices] = useState("");
+  const [priceCheckResult, setPriceCheckResult] = useState({ errorCount: 0 });
 
   const handleStringSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,11 +26,16 @@ const CardGrid: React.FC = () => {
     }
   };
 
-  const handleSumSubmit = async (e: React.FormEvent) => {
+  const handlePriceCheckSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/sum", { num1, num2 });
-      setSum(response.data);
+      const response = await axios.post("/api/pricecheck", {
+        products: products.split(","),
+        productPrices: productPrices.split(","),
+        soldProducts: soldProducts.split(","),
+        soldPrices: soldPrices.split(",").map(Number),
+      });
+      setPriceCheckResult(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -233,24 +241,41 @@ const CardGrid: React.FC = () => {
   )
 
   const priceCheckForm = (
-    <form onSubmit={handleStringSubmit} className="card-form" >
+    <form onSubmit={handlePriceCheckSubmit} className="card-form">
       <div className="card-inputs">
         <input
           type="text"
-          value={sentence}
-          onChange={(e) => setSentence(e.target.value)}
+          value={products}
+          onChange={(e) => setProducts(e.target.value)}
+          placeholder="Products (comma-separated)"
+        />
+        <input
+          type="text"
+          value={productPrices}
+          onChange={(e) => setProductPrices(e.target.value)}
+          placeholder="Product Prices (comma-separated)"
+        />
+        <input
+          type="text"
+          value={soldProducts}
+          onChange={(e) => setSoldProducts(e.target.value)}
+          placeholder="Products Sold (comma-separated)"
+        />
+        <input
+          type="text"
+          value={soldPrices}
+          onChange={(e) => setSoldPrices(e.target.value)}
+          placeholder="Sold Prices (comma-separated)"
         />
         <button type="submit">Submit</button>
       </div>
-      {
-        wordsInSentence && (
-          <div className="card-output">
-            <p>{wordsInSentence}</p>
-          </div>
-        )
-      }
+      {priceCheckResult && (
+        <div className="card-output">
+          <p>{`Number of errors: ${priceCheckResult.errorCount}`}</p>
+        </div>
+      )}
     </form>
-  )
+  );
 
   const duplicateProductsForm = (
     <form onSubmit={handleStringSubmit} className="card-form" >

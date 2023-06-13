@@ -20,10 +20,30 @@ app.post("/api/countwords", (req, res) => {
   res.json(count);
 });
 
-app.post("/api/sum", (req, res) => {
-  const { num1, num2 } = req.body;
-  const sum = num1 + num2;
-  res.json(sum);
+app.post('/api/pricecheck', (req, res) => {
+  const { products, productPrices, soldProducts, soldPrices } = req.body;
+
+  const productMap = new Map<string, number>();
+  let errorCount = 0;
+
+  // Create a map of products and their expected prices
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i].replace(/\s/g, "");
+    productMap.set(product, productPrices[i]);
+  }
+
+  // Compare the sold prices with the expected prices
+  for (let i = 0; i < soldProducts.length; i++) {
+    const soldProduct = soldProducts[i].replace(/\s/g, "");
+    const expectedPrice = productMap.get(soldProduct);
+    const actualPrice = soldPrices[i];
+
+    if (expectedPrice != actualPrice) {
+      errorCount++;
+    }
+  }
+
+  res.json({ errorCount });
 });
 
 app.listen(port, () => {
