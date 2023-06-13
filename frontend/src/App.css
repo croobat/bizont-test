@@ -25,6 +25,15 @@ p {
   color: #c0caf5;
 }
 
+a {
+  color: #70a5fd;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c0caf5;
+  text-decoration: underline;
+}
 .card-grid {
   display: flex;
   flex-direction: column;
