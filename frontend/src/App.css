@@ -59,7 +59,7 @@ a:hover {
   padding: 0 50px 0 0;
   text-align: left;
   max-width: 60%;
-  max-height: 400px;
+  max-height: 500px;
   overflow: auto;
 }
 
@@ -122,14 +122,15 @@ a:hover {
   }
 
   .card-content {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
 
   .card-description {
-    width: 100%;
+    max-width: 100%;
+    padding: 0;
     margin-bottom: 40px;
   }
 }
