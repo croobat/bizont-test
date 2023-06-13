@@ -348,7 +348,7 @@ const CardGrid: React.FC = () => {
         <input
           type="text"
           value={products}
-          onChange={(e) => setProducts(e.target.value)}
+          onChange={(e) => setProducts(e.target.value.trim())}
           placeholder="Products (comma-separated)"
         />
         <input
