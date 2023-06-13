@@ -16,6 +16,11 @@ const CardGrid: React.FC = () => {
   const [soldPrices, setSoldPrices] = useState("");
   const [priceCheckResult, setPriceCheckResult] = useState({ errorCount: 0 });
 
+  const [productDupNames, setProductDupNames] = useState("");
+  const [productDupPrices, setProductDupPrices] = useState("");
+  const [productDupWeights, setProductDupWeights] = useState("");
+  const [duplicateproductDupCount, setDuplicateProductDupCount] = useState(null);
+
   const handleStringSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -36,6 +41,20 @@ const CardGrid: React.FC = () => {
         soldPrices: soldPrices.split(",").map(Number),
       });
       setPriceCheckResult(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDuplicateProductsSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/checkduplicateproducts", {
+        productDupWeights: productDupNames.split(","),
+        productDupPrices: productDupPrices.split(","),
+        productDupNames: productDupWeights.split(",").map(Number),
+      });
+      setDuplicateProductDupCount(response.data.duplicateCount);
     } catch (error) {
       console.log(error);
     }
@@ -252,19 +271,19 @@ const CardGrid: React.FC = () => {
         <input
           type="text"
           value={productPrices}
-          onChange={(e) => setProductPrices(e.target.value)}
+          onChange={(e) => setProductPrices(e.target.value.trim())}
           placeholder="Product Prices (comma-separated)"
         />
         <input
           type="text"
           value={soldProducts}
-          onChange={(e) => setSoldProducts(e.target.value)}
-          placeholder="Products Sold (comma-separated)"
+          onChange={(e) => setSoldProducts(e.target.value.trim())}
+          placeholder="Sold Products (comma-separated)"
         />
         <input
           type="text"
           value={soldPrices}
-          onChange={(e) => setSoldPrices(e.target.value)}
+          onChange={(e) => setSoldPrices(e.target.value.trim())}
           placeholder="Sold Prices (comma-separated)"
         />
         <button type="submit">Submit</button>
@@ -278,24 +297,35 @@ const CardGrid: React.FC = () => {
   );
 
   const duplicateProductsForm = (
-    <form onSubmit={handleStringSubmit} className="card-form" >
+    <form onSubmit={handleDuplicateProductsSubmit} className="card-form">
       <div className="card-inputs">
         <input
           type="text"
-          value={sentence}
-          onChange={(e) => setSentence(e.target.value)}
+          value={productDupNames}
+          onChange={(e) => setProductDupNames(e.target.value.trim())}
+          placeholder="product Names (comma-separated)"
+        />
+        <input
+          type="text"
+          value={productDupPrices}
+          onChange={(e) => setProductDupPrices(e.target.value.trim())}
+          placeholder="product Prices (comma-separated)"
+        />
+        <input
+          type="text"
+          value={productDupWeights}
+          onChange={(e) => setProductDupWeights(e.target.value.trim())}
+          placeholder="product Weights (comma-separated)"
         />
         <button type="submit">Submit</button>
       </div>
-      {
-        wordsInSentence && (
-          <div className="card-output">
-            <p>{wordsInSentence}</p>
-          </div>
-        )
-      }
+      {duplicateproductDupCount !== null && (
+        <div className="card-output">
+          <p>{`Number of duplicate productDups: ${duplicateproductDupCount}`}</p>
+        </div>
+      )}
     </form>
-  )
+  );
 
   return (
     <div>

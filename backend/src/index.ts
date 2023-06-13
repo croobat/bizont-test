@@ -28,13 +28,13 @@ app.post('/api/pricecheck', (req, res) => {
 
   // Create a map of products and their expected prices
   for (let i = 0; i < products.length; i++) {
-    const product = products[i].replace(/\s/g, "");
+    const product = products[i];
     productMap.set(product, productPrices[i]);
   }
 
   // Compare the sold prices with the expected prices
   for (let i = 0; i < soldProducts.length; i++) {
-    const soldProduct = soldProducts[i].replace(/\s/g, "");
+    const soldProduct = soldProducts[i];
     const expectedPrice = productMap.get(soldProduct);
     const actualPrice = soldPrices[i];
 
@@ -44,6 +44,27 @@ app.post('/api/pricecheck', (req, res) => {
   }
 
   res.json({ errorCount });
+});
+
+app.post('/api/checkduplicateproducts', (req, res) => {
+  const { productDupNames, productDupPrices, productDupWeights } = req.body;
+
+  const seenProducts = new Set<string>();
+  let duplicateCount = 0;
+
+  console.log(productDupNames, productDupPrices, productDupWeights);
+
+  for (let i = 0; i < productDupNames.length; i++) {
+    const productKey = `${productDupNames[i]}_${productDupPrices[i]}_${productDupWeights[i]}`;
+
+    if (seenProducts.has(productKey)) {
+      duplicateCount++;
+    } else {
+      seenProducts.add(productKey);
+    }
+  }
+
+  res.json({ duplicateCount });
 });
 
 app.listen(port, () => {
