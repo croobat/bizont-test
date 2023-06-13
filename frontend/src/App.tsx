@@ -24,7 +24,7 @@ const CardGrid: React.FC = () => {
   const handleStringSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/countwords", { sentence: sentence });
+      const response = await axios.post("https://bizont-test-back.onrender.com/api/countwords", { sentence: sentence });
       setWordsInSentence(response.data);
     } catch (error) {
       console.log(error);
@@ -34,7 +34,7 @@ const CardGrid: React.FC = () => {
   const handlePriceCheckSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/pricecheck", {
+      const response = await axios.post("https://bizont-test-back.onrender.com/api/pricecheck", {
         products: products.split(","),
         productPrices: productPrices.split(","),
         soldProducts: soldProducts.split(","),
@@ -49,7 +49,7 @@ const CardGrid: React.FC = () => {
   const handleDuplicateProductsSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/checkduplicateproducts", {
+      const response = await axios.post("https://bizont-test-back.onrender.com/api/checkduplicateproducts", {
         productDupWeights: productDupNames.split(","),
         productDupPrices: productDupPrices.split(","),
         productDupNames: productDupWeights.split(",").map(Number),

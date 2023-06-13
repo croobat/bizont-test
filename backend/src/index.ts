@@ -6,6 +6,12 @@ const port = 5000;
 
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://bizont-test-front.onrender.com"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.post("/api/countwords", (req, res) => {
   const { sentence } = req.body;
   let count = 0;
