@@ -7,7 +7,16 @@ const port = 5000;
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://bizont-test-front.onrender.com"); // update to match the domain you will make the request from
+  const allowedOrigins = [
+    "https://bizont-test-front.onrender.com",
+    "https://bizont-test.croobat.com",
+  ];
+
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
