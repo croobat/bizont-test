@@ -98,6 +98,10 @@ a:hover {
   cursor: pointer;
 }
 
+.card-inputs input[type="text"] {
+  width: 400px;
+}
+
 .card-output {
   background-color: #3a3e4a;
   padding: 10px;
@@ -111,7 +115,7 @@ a:hover {
 }
 
 /* Media query for small viewports */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   body {
     justify-content: unset;
     align-items: unset;
