@@ -335,11 +335,9 @@ const CardGrid: React.FC = () => {
         <button type="submit">Submit</button>
       </div>
       {
-        wordsInSentence && (
-          <div className="card-output">
-            <p>There are {wordsInSentence} words in your sentence.</p>
-          </div>
-        )
+        <div className="card-output">
+          <p>There are {wordsInSentence} words in your sentence.</p>
+        </div>
       }
     </form>
   )
@@ -373,11 +371,11 @@ const CardGrid: React.FC = () => {
         />
         <button type="submit">Submit</button>
       </div>
-      {priceCheckResult && (
+      {
         <div className="card-output">
           <p>{`Number of errors: ${priceCheckResult.errorCount}`}</p>
         </div>
-      )}
+      }
     </form>
   );
 
