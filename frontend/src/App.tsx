@@ -64,7 +64,7 @@ const CardGrid: React.FC = () => {
     <p>
       A sentence is made up of a group of words. Each word is a sequence of letters, ('a'-'z', 'A'-'Z'), that may contain one or more hyphens and may end in a punctuation mark: period (.), comma (,), question mark (?) or exclamation point (!). Words will be separated by one or more white space characters. Hyphens join two words into one and should be retained while the other punctuation marks should be stripped. Determine the number of words in a given sentence. <br /><br />
 
-      Example <br />
+      <em>Example</em> <br />
       s = 'How many eggs are in a half-dozen, 13?' <br /><br />
 
       The list of words in the string is ['How','many', 'eggs', 'are', 'in', 'a', 'half-dozen'] and the number of words is 7. Notice that the numeric string, '13', is not a word because is not within the allowed character set.<br /><br />
@@ -78,25 +78,25 @@ const CardGrid: React.FC = () => {
       Returns:<br />
       int:an integer that represents the number of words in the string<br /><br />
 
-      Sample Case 0<br />
-      - Sample Input<br />
+      <b>Sample Case 0</b><br /><br />
+      - <em>Sample Input</em><br />
       he s a good programmer, he won 865 competitions, but sometimes he dont. What do you think? ALL test-cases should pass. Done-done?<br /><br />
-      - Sample Output<br />
+      - <em>Sample Output</em><br />
       21<br /><br />
 
-      - Explanation<br />
+      - <em>Explanation</em><br />
       The substring ‘865'is not a word, so s not included in the count. The hyphenated words ‘test-cases"and ‘Done-done’each count as 1 word. The total number of words in the string is 21.<br /><br /><br />
 
 
-      Sample Case 1<br />
-      - Sample Input<br />
+      <b>Sample Case 1</b><br /><br />
+      - <em>Sample Input</em><br />
       jds dsaf lkdf kdsa fkldsf, adsbf ldka ads? asd bfs ds bf[l. akf dhj ds 878  dwa WE DE 7475 dsfh ds  RAMU 748 dj.<br /><br />
 
-      - Sample Output<br />
+      - <em>Sample Output</em><br />
       21<br /><br />
 
-      - Explanation<br />
-      The substring ‘bf[l'is not a word, because of the invalid character. Other substrings that are not words are '878, '7475' and '748'. The total number of words in the string is 21.<br /><br />
+      - <em>Explanation</em><br />
+      The substring ‘bf[l'is not a word, because of the invalid character. Other substrings that are not words are '878, '7475' and '748'. The total number of words in the string is 21.
     </p>
   )
 
@@ -104,18 +104,42 @@ const CardGrid: React.FC = () => {
     <p>
       There is a shop with old-style cash registers. Rather than scanning items and pulling the price from a database, the price of each item is typed in manually. This method sometimes leads to errors. Given a list of items and their correct prices, compare the prices to those entered when each item was sold. Determine the number of errors in selling prices.<br /><br />
 
-      Example<br />
+      <em>Example</em><br />
       products = ['eggs', 'milk', ‘cheese']<br />
       productPrices = [2.89, 3.29, 5.79]<br />
       productSold = ['eggs', ‘eggs’, ‘cheese’, 'milk']<br />
       soldPrice = [2.89, 2.99, 5.97, 3.29]<br /><br />
 
       Price<br />
-      Product Actual Expected Error<br />
-      eggs 2.89  2.89<br />
-      eggs 2.99  2.89 1<br />
-      cheese  5.97  5.79 1<br />
-      milk 3.29  3.29<br /><br />
+      <table>
+        <thead><tr>
+          <td>Product </td>
+          <td>Actual </td>
+          <td>Expected </td>
+          <td>Error </td>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>eggs</td>
+            <td>2.99</td>
+            <td>2.89</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>cheese</td>
+            <td>5.97</td>
+            <td>5.79</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>milk</td>
+            <td>3.29</td>
+            <td>3.29</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+      <br /><br />
 
       The second sale of eggs has a wrong price, as does the sale of cheese. There are 2 errors in pricing.<br /><br />
 
@@ -131,39 +155,54 @@ const CardGrid: React.FC = () => {
       Returns:<br />
       int: the number of sale prices that were entered incorrectly.<br /><br />
 
-      Sample Case 0<br />
-      - Sample Input<br /><br />
+      <b>Sample Case 0</b><br />
+      - <em>Sample Input</em><br /><br />
       STDIN Function<br />
-      {"4     ->  products[] size n = 4"}<br />
-      {"rice  ->  products=['rice', 'sugar', 'wheat', 'cheese']"}<br />
-      sugar<br />
-      wheat<br />
-      cheese<br />
-      {"4     ->  productPrices[] size n = 4"}<br />
-      {"16.89 ->  productPrices[16.89, 56.92, 20.89, 145.99] "}<br />
-      56.92<br />
-      20.89<br />
-      345.99<br />
-      {"2     ->  productSold[] size m = 2"}<br />
-      {"rice  ->  productSold = ['rice', 'cheese']"}<br />
-      cheese<br />
-      {"2     ->  soldPrice[] size m = 2"}<br />
-      {"rice  ->  productSold = ['rice', 'cheese'] "}<br />
-      cheese<br />
-      {"2     ->  soldPrice[] size m = 2"}<br />
-      {"18.99 ->  soldPrice = [18.99, 400.89] "}<br />
-      400.89<br /><br />
+      {"products[] size n = 4"}<br />
+      {"products=['rice', 'sugar', 'wheat', 'cheese']"}<br /><br />
 
-      - Sample Output 0<br />
+      {"productPrices[] size n = 4"}<br />
+      {"productPrices[16.89, 56.92, 20.89, 145.99] "}<br /><br />
+
+      {"productSold[] size m = 2"}<br />
+      {"productSold = ['rice', 'cheese']"}<br /><br />
+
+      {"soldPrice[] size m = 2"}<br />
+      {"productSold = ['rice', 'cheese']"}<br /><br />
+
+      {"soldPrice[] size m = 2"}<br />
+      {"soldPrice = [18.99, 400.89] "}<br /><br />
+
+      - <em>Sample Output</em><br />
       2<br /><br />
 
-      - Explanation 0<br />
+      - <em>Explanation</em><br />
       Price<br />
-      Product   Actual    Expected    Error<br />
-      rice      18.99     16.89       1<br />
-      cheese    400.89    345.99      1<br /><br />
+      <table>
+        <thead><tr>
+          <td>Product </td>
+          <td>Actual </td>
+          <td>Expected </td>
+          <td>Error </td>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>rice</td>
+            <td>18.99</td>
+            <td>16.89</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>cheese</td>
+            <td>400.89</td>
+            <td>345.99</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+      <br /><br />
 
-      The sales of the rice and cheese were at the wrong prices. So, the number of sales prices that were entered incorrectly is 2.<br />
+      The sales of the rice and cheese were at the wrong prices. So, the number of sales prices that were entered incorrectly is 2.
     </p>
   )
 
@@ -171,7 +210,7 @@ const CardGrid: React.FC = () => {
     <p>
       You are given a complex list of n products, each with a name, price, and weight. Find out how many duplicate products are present within the list. Duplicate products contain identical parameters for all fields in the list (i.e. name, price, and weight).<br /><br />
 
-      Example:<br />
+      <em>Example</em>:<br />
       There are n = 5 products with attributes listed in three arrays, aligned by index.<br /><br />
 
       name = [ball, bat, glove, glove, glove]<br />
@@ -180,12 +219,40 @@ const CardGrid: React.FC = () => {
 
       A complete item description for item 0: (name[0], prices[0], weight[0])is (ball, 2, 2)<br /><br />
 
-      Name  Price Weight<br />
-      ball 2 2<br />
-      bat 3 5<br />
-      glove 1 1<br />
-      glove 2 1<br />
-      glove 1 1<br /><br />
+      <table>
+        <thead><tr>
+          <td>Name </td>
+          <td>Price </td>
+          <td>Weight </td>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>ball</td>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>bat</td>
+            <td>3</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>glove </td>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>glove </td>
+            <td>2</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>glove </td>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table><br />
 
       The first two items are unique.<br />
       The two gloves at indices 2 and 4 are equal in all three attributes so there is 1 duplicate.<br />
@@ -200,42 +267,60 @@ const CardGrid: React.FC = () => {
 
       {"string name[n]: string array of size n, where names{i] denotes the name of the product at the index of i."}<br />
       {"int price[n]: int array of size n, where prices[i] denotes the price of the product at the index of i."}<br />
-      {"int weight[n]: int array of size n, where weights[i] denotes the weight of the product at the index of i."}<br />
+      {"int weight[n]: int array of size n, where weights[i] denotes the weight of the product at the index of i."}<br /><br />
 
-      Sample Case 0<br />
-      - Sample Input 0<br /><br />
-      STDIN Function<br />
-      {"5 -> name[] size n = 5"}<br />
-      {"ball -> name = ['ball', 'box', 'ball', 'ball', 'box']"}<br />
-      box<br />
-      ball<br />
-      ball<br />
-      box<br />
-      {"5 -> price[] size n = 5"}<br />
-      {"2 -> price = [2, 2, 2, 2, 2]"}<br />
-      2<br />
-      2<br />
-      2<br />
-      2<br />
-      {"5 -> weight[] size n = 5"}<br />
-      {"1 -> wight = [1, 2, 1, 1, 5]"}<br />
-      2<br />
-      1<br />
-      1<br />
-      3<br /><br />
+      <b>Sample Case 0</b><br /><br />
+      - <em>Sample Input</em><br /><br />
+      STDIN Function<br /><br />
+      {"name[] size n = 5"}<br />
+      {"name = ['ball', 'box', 'ball', 'ball', 'box']"}<br /><br />
 
-      - Sample Output 0<br />
+      {"price[] size n = 5"}<br />
+      {"price = [2, 2, 2, 2, 2]"}<br /><br />
+
+      {"weight[] size n = 5"}<br />
+      {"wight = [1, 2, 1, 1, 5]"}<br /><br />
+
+      - <em>Sample Output</em><br />
       2<br /><br />
 
-      - Explanation<br />
-      Name Price Weight<br />
-      ball 2 1<br />
-      box 2 2<br />
-      ball 2 1<br />
-      ball 2 1<br />
-      box 2 3<br /><br />
+      - <em>Explanation</em><br />
+      <table>
+        <thead><tr>
+          <td>Name </td>
+          <td>Price </td>
+          <td>Weight </td>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>ball</td>
+            <td>2</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>bat</td>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>glove </td>
+            <td>2</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>glove </td>
+            <td>2</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>glove </td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table><br />
 
-      The 3 balls have the same name, price and weight, so there are 2 duplicates. The two other products are boxes but they have different weights.<br />
+      The 3 balls have the same name, price and weight, so there are 2 duplicates. The two other products are boxes but they have different weights.
     </p>
   )
 
@@ -321,7 +406,7 @@ const CardGrid: React.FC = () => {
       </div>
       {duplicateproductDupCount !== null && (
         <div className="card-output">
-          <p>{`Number of duplicate productDups: ${duplicateproductDupCount}`}</p>
+          <p>{`There are ${duplicateproductDupCount} duplicate products`}</p>
         </div>
       )}
     </form>
